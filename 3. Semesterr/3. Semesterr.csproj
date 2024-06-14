@@ -8,4 +8,48 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Rekursion\" />
+    <None Remove="Funktionel Programmering\" />
+    <None Remove="APIer\" />
+    <None Remove="TodoAPI\" />
+    <None Remove="EntityFramework\" />
+    <None Remove="BigO\" />
+    <None Remove="KædedeStrukturer\" />
+    <None Remove="Sortering\" />
+    <None Remove="Hashing\" />
+    <None Remove="Prøveeksamen %28API%29\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Rekursion\" />
+    <Folder Include="Funktionel Programmering\" />
+    <Folder Include="APIer\" />
+    <Folder Include="TodoAPI\" />
+    <Folder Include="EntityFramework\" />
+    <Folder Include="BigO\" />
+    <Folder Include="KædedeStrukturer\" />
+    <Folder Include="Sortering\" />
+    <Folder Include="Hashing\" />
+    <Folder Include="Prøveeksamen %28API%29\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Bot.Builder.Integration.AspNet.Core" Version="4.22.4" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.4.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TodoAPI\TodoListBlazor.csproj" />
+    <None Include="KædedeStrukturer\UserLinkedList\opg1.csproj" />
+    <None Include="KædedeStrukturer\SortedUserLinkedList\opg5.csproj" />
+    <None Include="KædedeStrukturer\SortedUserLinkedList\SortedUserLinkedList.sln" />
+    <None Include="Hashing\eksempel\eksempel.csproj" />
+    <None Include="Hashing\hashing.csproj" />
+    <None Include="Prøveeksamen %28API%29\mit-projekt.csproj" />
+    <None Include="Prøveeksamen %28API%29\mit-projekt.sln" />
+  </ItemGroup>
 </Project>
