@@ -1,4 +1,4 @@
-﻿namespace LinkedList
+﻿/*namespace LinkedList
 {
     class Node
     {
@@ -24,7 +24,7 @@
 
         public User RemoveFirst()
         {
-            // TODO: Implement!
+           
             if (first == null) // Hvis listen er tom
             {
                 return null;
@@ -36,7 +36,7 @@
                 first = first.Next; // Første node bliver nu den næste node i listen
                 return node.Data;   // Returnere data fra den første node (Den slettede node) 
             }
-            return null;
+           
         }
 
         public void RemoveUser(User user)
@@ -62,7 +62,7 @@
                 else
                 {
                     previous = node;
-                    node = node.Next;
+                    node = node.Next;      //springer over den "rigtige" node og "opdaterer"
                 }
             }
         }
@@ -74,32 +74,41 @@
 
         public User GetLast()
         {
-            for (Node node = first; node != null; node = node.Next)
-            // Startværdi: node = first;
-            // Betingelse: node != null;
-            // Iteration: node = node.Next
+            // Hvis listen er tom, returner null
+            if (first == null)
             {
-                if (node.Next == null)
-                {
-                    return node.Data;
-                }
+                return null!;
             }
-            // TODO: Implement
-            return null!;
+
+            // Start fra den første node og gennemgå listen, indtil vi når den sidste node
+            Node node = first;
+
+        
+            while (node.Next != null)
+            {
+                node = node.Next;
+            }
+
+            // Returner data fra den sidste node
+            return node.Data;
         }
+
 
         public int CountUsers()
         {
-            int count = 0; // Variabel til at holde antal
+            int count = 0;      // Initialisering af tæller
+            Node node = first;  
 
-            for (Node node = first; node != null; node = node.Next)
+            // Start ved første, gennemgå listen og tæl noderne
+            while (node != null)
             {
-                count += 1;
+                count++;       
+                node = node.Next; 
             }
 
-            // TODO: Implement
-            return count;
+            return count;       
         }
+
 
         public override String ToString()
         {

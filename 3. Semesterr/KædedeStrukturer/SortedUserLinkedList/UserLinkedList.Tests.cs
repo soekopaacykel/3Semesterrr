@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace LinkedList.Tests
+namespace SortLinkedList.Tests
 {
     [TestClass]
     public class LinkedList_Tests

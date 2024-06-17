@@ -1,21 +1,21 @@
-﻿namespace LinkedList
+﻿namespace SortLinkedList
 {
     class Node
     {
-        public Node(User data, Node next)
+        public Node(SortUser data, Node next)
         {
             this.Data = data;
             this.Next = next;
         }
-        public User Data;
+        public SortUser Data;
         public Node Next;
     }
 
-    class SortedUserLinkedList
+    public class SortedUserLinkedList
     {
         private Node first = null!;
 
-        public void Add(User newUser)
+        public void Add(SortUser newUser)
         {
             Node newNode = new Node(newUser, null); // Opretter en ny node med det nye User-objekt.
 
@@ -44,7 +44,7 @@
         }
 
 
-        public User RemoveFirst()
+        public SortUser RemoveFirst()
         {
             if (first == null) // Hvis listen er tom
             {
@@ -61,7 +61,7 @@
         }
 
 
-        public void RemoveUser(User user)
+        public void RemoveUser(SortUser user)
         {
             Node node = first;
             Node previous = null!;
@@ -89,28 +89,25 @@
             }
         }
 
-        public User GetFirst()
+        public SortUser GetFirst()
         {
             return first.Data;
         }
 
-        public User GetLast()
+        public SortUser GetLast()
         {
-            for (Node node = first; node != null; node = node.Next)
-            // Startværdi: node = first;
-            // Betingelse: node != null;
-            // Iteration: node = node.Next
-            // Kan også bruge Node CurrentNode = first;
-            // while(currentNode.Next != null) {current = current.Next}
-            // return current.Data
+            if (first == null)
             {
-                if (node.Next == null)
-                {
-                    return node.Data;
-                }
+                return null;
             }
 
-            return null!;
+            Node node = first;
+            while (node.Next != null)
+            {
+                node = node.Next;
+            }
+
+            return node.Data;
         }
 
         public int CountUsers()
@@ -136,18 +133,19 @@
             }
             return result.Trim();
         }
-        public bool Contains(User user)
+        public bool Contains(SortUser user)
         {
-            for (Node node = first; node != null; node = node.Next)
+            Node current = first;
+
+            while (current != null)
             {
-                // Console.WriteLine(node.Data.Name); // --logger "console;verbosity=detailed" 
-                if (node.Data.Name == user.Name)
+                if (current.Data.Name == user.Name)
                 {
                     return true;
                 }
+                current = current.Next;
             }
 
             return false;
         }
     }
-}

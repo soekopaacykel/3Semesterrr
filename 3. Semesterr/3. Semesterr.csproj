@@ -44,9 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="TodoAPI\TodoListBlazor.csproj" />
-    <None Include="KædedeStrukturer\UserLinkedList\opg1.csproj" />
-    <None Include="KædedeStrukturer\SortedUserLinkedList\opg5.csproj" />
-    <None Include="KædedeStrukturer\SortedUserLinkedList\SortedUserLinkedList.sln" />
     <None Include="Hashing\eksempel\eksempel.csproj" />
     <None Include="Hashing\hashing.csproj" />
     <None Include="Prøveeksamen %28API%29\mit-projekt.csproj" />

@@ -53,29 +53,65 @@ namespace _3._Semesterr.BigO
             return -1;
         }
 
-        /// <summary>
-        /// Indsætter et tal i et sorteret array. En kopi af arrayet returneres.
-        /// Arrayet er fortsat sorteret efter at det nye tal er indsat.
-        /// </summary>
-        /// <param name="sortedArray">Det sorteret array, hvor tallet skal indsættes.</param>
-        /// <param name="tal">Tallet der skal indsættes.</param>
-        /// <returns>En kopi af det sorterede array med det nye tal indsat.</returns>
-        public static int[] InsertSorted(int[] sortedArray, int tal)
+
+        /*
+         * Skriv kode der indsætter et positivt tal i et sorteret array. 
+         * Array skal fortsat være sorteret efter indsættelse.
+
+        Da et array ikke kan udvides i C#, skal der være plads nok i arrayet
+        til indsættelse af et nyt tal. Ubrugte pladser i arrayet skal sættes til -1.
+        Du får brug for en variabel der holder styr på næste ledige index.
+        Hvis der ikke længere er plads i arrayet, skal metoden blot returnerer
+        en kopi af arrayet uden ændringer.
+
+        Herunder er et eksempel på et array, hvor de første seks pladser er fyldte,
+        og resten er tomt.
+
+        var next = 6;
+        var sortedArray = new int[] { 2, 4, 8, 10, 15, 17, -1, -1, -1, -1 };
+        I skabelonen skrives koden i metoden InsertSorted.
+         */
+
+
+        public static int[] InsertSorted(int[] sortedArray, ref int next, int tal)
         {
-            int[] newArray = new int[sortedArray.Length];
-
-            // Copy elements to newArray
-            Array.Copy(sortedArray, newArray, sortedArray.Length);
-
-            int i;
-            for (i = sortedArray.Length - 1; i >= 0 && (newArray[i] > tal || newArray[i] == -1); i--)
+            // Tjek om der er plads i arrayet
+            if (next >= sortedArray.Length)
             {
-                newArray[i + 1] = newArray[i];
+                // Ingen plads til at indsætte tallet, returnér en kopi af det oprindelige array
+                return (int[])sortedArray.Clone();
             }
 
-            newArray[i + 1] = tal;
+            // Find den korrekte position til at indsætte tallet
+            int i;
+            for (i = next - 1; i >= 0 && sortedArray[i] > tal; i--)
+            {
+                // Flyt elementerne til højre for at gøre plads til det nye tal
+                sortedArray[i + 1] = sortedArray[i];
+            }
 
-            return newArray;
+            // Indsæt det nye tal på den fundne position
+            sortedArray[i + 1] = tal;
+
+            // Opdater next-indekset for at afspejle, at et nyt element er blevet tilføjet
+            next++;
+
+            return sortedArray;
+        }
+
+        public static void Main()
+        {
+            int next = 6;
+            var sortedArray = new int[] { 2, 4, 8, 10, 15, 17, -1, -1, -1, -1 };
+
+            // Indsæt et nyt tal
+            int numberToInsert = 12;
+            sortedArray = InsertSorted(sortedArray, ref next, numberToInsert);
+
+            // Udskriv det opdaterede array
+            Console.WriteLine(string.Join(", ", sortedArray));
         }
     }
+
 }
+

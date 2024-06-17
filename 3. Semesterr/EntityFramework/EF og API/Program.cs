@@ -10,7 +10,7 @@ class Program
         using (var db = new BoardContext())
         {
             // Create a new User, Board and Todo
-            var user = new User { Name = "GMoney" };
+            var user = new SortUser { Name = "GMoney" };
             var board = new Board { Todos = new List<Todo>() };
             // var todo = new Todo { Name = "Test2", Category = "RocketLeague", User = user, Board = board };
 
